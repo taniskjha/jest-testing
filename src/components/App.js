@@ -4,7 +4,7 @@ import CommentBox from './CommentBox'
 
 const App = () => {
     return (
-        <div>
+        <div style={{height:'100vh'}}>
             <CommentBox />
             <CommentList />
         </div>

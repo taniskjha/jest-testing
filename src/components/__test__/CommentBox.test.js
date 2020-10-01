@@ -3,12 +3,15 @@ import React from 'react'
 import { mount } from 'enzyme'
 import CommentBox from '../CommentBox'
 import "../../setupTests.js"
+import Root from '../../Root.js'
 
 
 // adding wrapper around before each test
 let wrapper;
 beforeEach(() => {
-   wrapper = mount(<CommentBox />); 
+   
+        wrapper = mount( <Root><CommentBox /></Root>); 
+    
 })
 // cleaning wrapper around after each test
 afterEach(() => {
@@ -31,7 +34,6 @@ it('can enter input the text and able to submit it', () => {
         target : {value:'new new comment'}
     });
     wrapper.update()
-    
     expect(wrapper.find('textarea').prop('value')).toEqual('new new comment')
 })
 

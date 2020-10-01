@@ -1,6 +1,9 @@
 import React, {useState} from 'react'
+import {connect} from 'react-redux'
+import * as actions from '../action'
 
-const CommentBox = () => {
+const CommentBox = (props) => {
+    console.log("Output: CommentBox -> props", props)
     const [comment, setComment] = useState('')
     const handleChange = (e) => {
     setComment(e.target.value)
@@ -8,18 +11,19 @@ const CommentBox = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        props.saveComment(comment)
         setComment('')
     }
     return (
-        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', height:'100vh'}}>
-            <form onSubmit={handleSubmit}>
+        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+            <form onSubmit={comment !== '' ? handleSubmit : null}>
             <h4>Dukaan App review</h4>
-            <textarea value={comment} onChange={handleChange} style={{marginBottom:'4px'}}></textarea>
+            <textarea required value={comment} onChange={handleChange} style={{marginBottom:'4px'}}></textarea>
             <br />
-            <button style={{backgroundColor:'red', color: 'white', padding:'4px',borderRadius:'8px', pointerEvents: 'cursor'}} >Submit Review</button>
+            <button type="submit" style={{backgroundColor:'red', color: 'white', padding:'4px',borderRadius:'8px', pointerEvents: 'cursor'}} >Submit Review</button>
             </form>
         </div>
     )
 }
 
-export default CommentBox
+export default connect(null,actions)(CommentBox)
