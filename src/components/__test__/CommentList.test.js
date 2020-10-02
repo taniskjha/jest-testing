@@ -25,3 +25,9 @@ afterEach(() => {
 it('creates on li per element', () => {
    expect(wrapper.find('li').length).toEqual(3);
 })
+
+
+// test 1 - it shows correct li inside ui
+it('shows correct li inside ui', () => {
+    expect(wrapper.render().text()).toContain(['Comment 1Comment 2Comment 3'])
+ })

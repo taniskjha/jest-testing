@@ -9,9 +9,7 @@ import Root from '../../Root.js'
 // adding wrapper around before each test
 let wrapper;
 beforeEach(() => {
-   
         wrapper = mount( <Root><CommentBox /></Root>); 
-    
 })
 // cleaning wrapper around after each test
 afterEach(() => {

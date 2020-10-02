@@ -2,8 +2,6 @@ import commentsReducer from '../comments'
 import {SAVE_COMMENT} from '../../action/types'
 
 // test 1 - handle action of type save Comment 
-
-
 it('handle action of type save Comment ', () => {
     const action = {
         type:'SAVE_COMMENT',
@@ -12,3 +10,6 @@ it('handle action of type save Comment ', () => {
     const newState = commentsReducer([], action)
     expect(newState).toEqual(['New comment kuch bhi'])
 })
+
+// test 2 - handle action with unknown type
+
